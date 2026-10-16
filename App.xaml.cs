@@ -34,6 +34,7 @@ public partial class App : Application
         SetDarkMode(Launchpad.DarkMode);
         Tray.SetupTray();
         Launchpad.StartAll(true);
+        ShowWindow();
     }
 
     protected override void OnExit(ExitEventArgs e)

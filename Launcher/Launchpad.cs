@@ -448,7 +448,7 @@ public class Launchpad : INotifyPropertyChanged
 
     internal static void StartAll(bool startup = false)
     {
-        foreach (Executable ex in App.Launchpad.Executables.Where(ex => (!startup || ex.AutoStart) && !ex.IsRunning)) _ = ex.Start(startup);
+        foreach (Executable ex in App.Launchpad.Executables.Where(ex => (!startup || ex.AutoStart) && !ex.IsRunning)) _ = ex.Start(true);
     }
 
     internal static void StopAll()

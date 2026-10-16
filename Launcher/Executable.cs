@@ -635,7 +635,7 @@ public class Executable : INotifyPropertyChanged
         Enabled = false;
     }
 
-    private async Task StartProcess(bool auto = false)
+    private async Task StartProcess(bool useStartupDelay = false)
     {
         if (Launchpad.DisableStart) return;
         StartupCts?.Cancel();
@@ -643,7 +643,7 @@ public class Executable : INotifyPropertyChanged
         var token = StartupCts.Token;
         try
         {
-            if (auto && StartupDelay > 0)
+            if (useStartupDelay && StartupDelay > 0)
             {
                 await Task.Delay(StartupDelay, token);
                 if (token.IsCancellationRequested) return;
